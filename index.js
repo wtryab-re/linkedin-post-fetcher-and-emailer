@@ -85,7 +85,7 @@ const sendEmail = async (unformatted_items) => {
     await resend_client.emails.send({
       from: process.env.RESEND_EMAIL,
       to: process.env.RESEND_TO_EMAIL,
-      subject: "LinkedIn Job Postings",
+      subject: "New LinkedIn Job Postings",
       html: `<p>${formattedContent}</p>`,
     });
     console.log("Email sent successfully".green.bold);
@@ -99,6 +99,7 @@ const main = async () => {
   try {
     console.log("Sending email...".yellow.bold);
     await sendEmail(unformatted_items);
+    console.log("Email sent successfully".green.bold);
   } catch (error) {
     console.error("Error in main function:", error);
   }
