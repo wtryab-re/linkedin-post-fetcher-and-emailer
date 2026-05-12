@@ -51,6 +51,12 @@ const input = {
 
 const fetchData = async () => {
   // Run the Actor and wait for it to finish
+  console.log("ACTOR ID ", process.env.APIFY_ACTOR_ID);
+  console.log("APIKEY ", process.env.API_KEY_APIFY);
+  console.log("RESEND API KEY ", process.env.RESEND_API_KEY);
+  console.log("RESEND EMAIL ", process.env.RESEND_EMAIL);
+  console.log("RESEND TO EMAIL ", process.env.RESEND_TO_EMAIL);
+
   try {
     const run = await apify_client
       .actor(process.env.APIFY_ACTOR_ID)
