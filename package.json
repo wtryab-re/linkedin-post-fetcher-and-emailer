@@ -14,6 +14,7 @@
     "@atharvh01/linkedin-jobs-api": "^1.0.1",
     "apify-client": "^2.23.3",
     "colors": "^1.4.0",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "linkedin-jobs-api": "^1.0.7",
     "resend": "^6.12.3",
@@ -21,5 +22,13 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wtryab-re/linkedin-post-fetcher-and-emailer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wtryab-re/linkedin-post-fetcher-and-emailer/issues"
+  },
+  "homepage": "https://github.com/wtryab-re/linkedin-post-fetcher-and-emailer#readme"
 }

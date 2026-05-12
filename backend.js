@@ -1,23 +1,16 @@
 require("dotenv").config();
 const { ApifyClient } = require("apify-client");
-const express = require("express");
 const { Resend } = require("resend");
 const colors = require("colors");
 
 /**
 
 * Create the following environment variables in a .env file:
- * PORT,
  * API_KEY_APIFY, 
  * API_KEY_APIFY_2, 
  * RESEND_API_KEY,
 **/
-
-const PORT = process.env.PORT || 3000;
 const resend_client = new Resend(process.env.RESEND_API_KEY);
-
-const app = express();
-app.use(express.json());
 
 /**
 
@@ -112,7 +105,3 @@ const main = async () => {
 };
 
 main();
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
