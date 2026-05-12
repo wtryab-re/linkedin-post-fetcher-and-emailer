@@ -7,7 +7,7 @@ const colors = require("colors");
 
 * Create the following environment variables in a .env file:
  * API_KEY_APIFY, 
- * API_KEY_APIFY_2, 
+ * APIFY_ACTOR_ID, 
  * RESEND_API_KEY,
 **/
 const resend_client = new Resend(process.env.RESEND_API_KEY);
@@ -26,10 +26,10 @@ const apify_client = new ApifyClient({
 });
 
 const linkedin_search_data = {
-  location: "United%20Arab%20Emirates",
+  location: "Dubai",
   timeRange: "r7200", //7200
   keywords: "data%20science",
-  level: "",
+  level: "1", // 0: All, 1: Entry level, 2: Associate, 3: Mid-Senior, 4: Director, 5: Executive
 };
 
 const input = {
@@ -38,11 +38,13 @@ const input = {
       linkedin_search_data.keywords +
       "&location=" +
       linkedin_search_data.location +
+      "&f_E=" +
+      linkedin_search_data.level +
       "&f_TPR=" +
       linkedin_search_data.timeRange,
   ],
   scrapeCompany: true,
-  count: 10,
+  count: 13,
   splitByLocation: false,
   splitCountry: "AE",
 };
@@ -51,7 +53,7 @@ const fetchData = async () => {
   // Run the Actor and wait for it to finish
   try {
     const run = await apify_client
-      .actor(process.env.API_KEY_APIFY_2)
+      .actor(process.env.APIFY_ACTOR_ID)
       .call(input);
 
     //response from linkedin is stored in dataset, we need to fetch it and send it via email
@@ -91,17 +93,25 @@ const sendEmail = async (unformatted_items) => {
     console.log("Email sent successfully".green.bold);
   } catch (error) {
     console.error("Error sending email:", error);
+    throw error;
   }
 };
 
 const main = async () => {
   const unformatted_items = await fetchData();
+
+  if (!unformatted_items || unformatted_items.length === 0) {
+    console.log("No items fetched");
+    return;
+  }
+
+  console.log("Sending email...");
   try {
-    console.log("Sending email...".yellow.bold);
     await sendEmail(unformatted_items);
-    console.log("Email sent successfully".green.bold);
+    console.log("Process completed successfully".green.bold);
   } catch (error) {
     console.error("Error in main function:", error);
+    throw error;
   }
 };
 
