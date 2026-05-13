@@ -24,8 +24,8 @@ jobs:
       - name: Run script
         run: node index.js
         env:
-          API_KEY_APIFY: ${{ secrets.API_KEY_APIFY }}
-          APIFY_ACTOR_ID: ${{ secrets.APIFY_ACTOR_ID }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          RESEND_EMAIL: ${{ secrets.RESEND_EMAIL }}
-          RESEND_TO_EMAIL: ${{ secrets.RESEND_TO_EMAIL }}
+          API_KEY_APIFY: "${{ secrets.API_KEY_APIFY }}"
+          APIFY_ACTOR_ID: "${{ secrets.APIFY_ACTOR_ID }}"
+          RESEND_API_KEY: "${{ secrets.RESEND_API_KEY }}"
+          RESEND_EMAIL: "${{ secrets.RESEND_EMAIL }}"
+          RESEND_TO_EMAIL: "${{ secrets.RESEND_TO_EMAIL }}"
