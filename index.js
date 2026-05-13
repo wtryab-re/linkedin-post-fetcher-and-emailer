@@ -27,7 +27,7 @@ const apify_client = new ApifyClient({
 
 const linkedin_search_data = {
   location: "Dubai",
-  timeRange: "r7200", //7200 means 2 hours, r14400 means 4 hours, r21600 means 6 hours, r43200 means 12 hours, r86400 means 24 hours
+  timeRange: "r86400", //7200 means 2 hours, r14400 means 4 hours, r21600 means 6 hours, r43200 means 12 hours, r86400 means 24 hours
   keywords: "data%20science",
   level: "1", // 0: All, 1: Entry level, 2: Associate, 3: Mid-Senior, 4: Director, 5: Executive
 };
@@ -51,12 +51,6 @@ const input = {
 
 const fetchData = async () => {
   // Run the Actor and wait for it to finish
-  console.log("ACTOR ID ", process.env.APIFY_ACTOR_ID);
-  console.log("APIKEY ", process.env.API_KEY_APIFY);
-  console.log("RESEND API KEY ", process.env.RESEND_API_KEY);
-  console.log("RESEND EMAIL ", process.env.RESEND_EMAIL);
-  console.log("RESEND TO EMAIL ", process.env.RESEND_TO_EMAIL);
-
   try {
     const run = await apify_client
       .actor(process.env.APIFY_ACTOR_ID)
