@@ -34,6 +34,6 @@ Free APIFY gives only $5 per month for free so we have to limit the number of ru
 
 The timer has been set to run 4am to 8pm UTC time. You can set this as you like in the linkedin.yml file
 
-# Run it on local or on Actions
+# Run it on local or on Actions or on Render
 
 ## That's it, let's get this bread!
