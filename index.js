@@ -26,10 +26,10 @@ const apify_client = new ApifyClient({
 });
 
 const linkedin_search_data = {
-  location: "Dubai",
-  timeRange: "r7200", //7200 means 2 hours, r14400 means 4 hours, r21600 means 6 hours, r43200 means 12 hours, r86400 means 24 hours
+  location: "United%20Arab%20Emirates", //use %20 for space
+  timeRange: "r14400", //7200 means 2 hours, r14400 means 4 hours, r21600 means 6 hours, r43200 means 12 hours, r86400 means 24 hours
   keywords: "data%20science",
-  level: "1", // 0: All, 1: Entry level, 2: Associate, 3: Mid-Senior, 4: Director, 5: Executive
+  level: "", // 0: All, 1: Entry level, 2: Associate, 3: Mid-Senior, 4: Director, 5: Executive
 };
 
 const input = {
