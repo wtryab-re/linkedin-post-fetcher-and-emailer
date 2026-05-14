@@ -2,7 +2,7 @@ name: LinkedIn Mailer
 
 on:
   schedule:
-    - cron: "0 4-20/2 * * *"
+    - cron: "19 4-20/3 * * *"
   workflow_dispatch:
 
 jobs:
